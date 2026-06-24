@@ -32,12 +32,12 @@ class SimpananController extends Controller
         $simpananService->createSimpanan($validated);
 
         return redirect()->route('admin.simpanan.index')->with('success', 'Simpanan berhasil ditambahkan!');
-    } // <--- KURUNG TUTUP store HARUS ADA DI SINI
+    } 
 
     public function edit(Simpanan $simpanan)
     {
         return view('admin.simpanan.edit', compact('simpanan'));
-    } // <--- KURUNG TUTUP edit
+    }
 
     public function update(Request $request, Simpanan $simpanan)
     {
@@ -51,12 +51,12 @@ class SimpananController extends Controller
         $simpanan->update($validated);
 
         return redirect()->route('admin.simpanan.index')->with('success', 'Simpanan berhasil diupdate!');
-    } // <--- KURUNG TUTUP update
+    } 
 
     public function destroy(Simpanan $simpanan)
     {
         $simpanan->delete();
 
         return redirect()->route('admin.simpanan.index')->with('success', 'Simpanan berhasil dihapus!');
-    } // <--- KURUNG TUTUP destroy
-} // <--- KURUNG TUTUP AKHIR (milik class Controller)
+    } 
+} 

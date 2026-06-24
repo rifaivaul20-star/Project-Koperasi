@@ -70,11 +70,11 @@
         const eyeSlashIcon = document.querySelector('#eyeSlashIcon');
 
         togglePassword.addEventListener('click', function () {
-            // Cek tipe input, jika password ubah ke text, jika text ubah ke password
+            
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
             
-            // Ganti-gantian menyembunyikan/menampilkan ikon mata
+            
             eyeIcon.classList.toggle('hidden');
             eyeSlashIcon.classList.toggle('hidden');
         });

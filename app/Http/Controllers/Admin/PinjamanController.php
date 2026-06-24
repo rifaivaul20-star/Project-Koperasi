@@ -9,20 +9,20 @@ use App\Models\Pinjaman;
 
 class PinjamanController extends Controller
 {
-    // Menampilkan daftar pinjaman
+    
     public function index()
     {
         $pinjaman = Pinjaman::all();
         return view('admin.pinjaman.index', compact('pinjaman'));
     }
 
-    // Menampilkan form tambah pinjaman
+    
     public function create()
     {
         return view('admin.pinjaman.create');
     }
 
-    // Menyimpan data pinjaman baru
+    
     public function store(Request $request, PinjamanService $pinjamanService)
     {
         $validated = $request->validate([

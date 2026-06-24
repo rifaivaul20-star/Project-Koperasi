@@ -14,8 +14,7 @@ class StoreAnggotaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // Tambahkan nomor_anggota di sini
-            // nullable agar tetap bisa diisi otomatis oleh Service jika dikosongkan
+            
             'nomor_anggota' => ['nullable', 'string', 'max:50', 'unique:anggota,nomor_anggota'],
             
             'nama_lengkap'  => ['required', 'string', 'max:255'],

@@ -9,7 +9,6 @@ class Simpanan extends Model
     protected $table = 'simpanan';
     protected $fillable = ['anggota_id', 'jenis_simpanan', 'jumlah', 'tanggal'];
 
-    // Menghubungkan Simpanan ke Anggota
     public function anggota()
     {
         return $this->belongsTo(Anggota::class, 'anggota_id');

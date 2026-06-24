@@ -21,7 +21,6 @@ class Anggota extends Model
         'alamat',
     ];
 
-    // PENTING: Inilah yang menghilangkan error 405
     public function getRouteKeyName()
     {
         return 'nomor_anggota';

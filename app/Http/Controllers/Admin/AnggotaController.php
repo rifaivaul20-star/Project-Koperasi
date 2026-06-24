@@ -23,17 +23,17 @@ class AnggotaController extends Controller
         return redirect()->route('admin.anggota.index')->with('success', 'Data berhasil ditambah!');
     }
 
-    // --- BAGIAN BAWAH INI YANG DISESUAIKAN ---
+    
 
     public function edit($id) {
-        // Cari data anggota berdasarkan 'nomor_anggota'
+       
         $anggota = Anggota::where('nomor_anggota', $id)->firstOrFail();
         
         return view('admin.anggota.edit', compact('anggota'));
     }
 
     public function update(StoreAnggotaRequest $request, $id, AnggotaService $anggotaService) {
-        // Cari data anggota berdasarkan 'nomor_anggota'
+        
         $anggota = Anggota::where('nomor_anggota', $id)->firstOrFail();
         
         $anggotaService->updateAnggota($anggota, $request->validated());
@@ -41,7 +41,7 @@ class AnggotaController extends Controller
     }
 
     public function destroy($id) {
-        // Cari data anggota berdasarkan 'nomor_anggota', lalu hapus
+        
         $anggota = Anggota::where('nomor_anggota', $id)->firstOrFail();
         
         $anggota->delete();
