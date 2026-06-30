@@ -21,26 +21,38 @@
 
         <form action="{{ route('admin.simpanan.store') }}" method="POST">
             @csrf
+            
             <div class="mb-4">
-                <label class="block text-sm font-medium">Pilih ID Anggota</label>
-                <input type="number" name="anggota_id" class="w-full border p-2 rounded" required>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Pilih Nama Anggota</label>
+                <select name="anggota_id" class="w-full border p-2 rounded focus:ring-2 focus:ring-green-500" required>
+                    <option value="">-- Pilih Nama Anggota --</option>
+                    @foreach($anggota as $a)
+                        <option value="{{ $a->id }}">{{ $a->nama_lengkap }}</option>
+                    @endforeach
+                </select>
             </div>
+
             <div class="mb-4">
-                <label class="block text-sm font-medium">Jenis Simpanan</label>
-                <select name="jenis_simpanan" class="w-full border p-2 rounded">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Simpanan</label>
+                <select name="jenis_simpanan" class="w-full border p-2 rounded focus:ring-2 focus:ring-green-500">
                     <option value="Wajib">Wajib</option>
                     <option value="Sukarela">Sukarela</option>
                 </select>
             </div>
+
             <div class="mb-4">
-                <label class="block text-sm font-medium">Jumlah</label>
-                <input type="number" name="jumlah" class="w-full border p-2 rounded" required>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Jumlah</label>
+                <input type="number" name="jumlah" class="w-full border p-2 rounded focus:ring-2 focus:ring-green-500" required>
             </div>
+
             <div class="mb-4">
-                <label class="block text-sm font-medium">Tanggal</label>
-                <input type="date" name="tanggal" class="w-full border p-2 rounded" required>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
+                <input type="date" name="tanggal" class="w-full border p-2 rounded focus:ring-2 focus:ring-green-500" required>
             </div>
-            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full">Simpan Simpanan</button>
+
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-700 transition">
+                Simpan Simpanan
+            </button>
         </form>
     </div>
 </body>

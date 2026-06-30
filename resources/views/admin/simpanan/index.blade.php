@@ -40,7 +40,8 @@
                     @forelse($simpanan as $item)
                         <tr class="border-b border-slate-100 hover:bg-slate-50 transition duration-150 ease-in-out">
                             <td class="px-6 py-4 font-medium text-slate-900">
-                                {{ $item->anggota->nama ?? 'Tidak Ditemukan' }}
+                                {{-- PERUBAHAN DI SINI: Menggunakan nama_lengkap --}}
+                                {{ $item->anggota->nama_lengkap ?? 'Tidak Ditemukan' }}
                             </td>
                             
                             <td class="px-6 py-4 text-slate-600 font-medium">

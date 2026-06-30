@@ -9,16 +9,17 @@ use App\Models\Simpanan;
 
 class SimpananController extends Controller
 {
-    public function index()
-    {
-        $simpanan = Simpanan::all();
-        return view('admin.simpanan.index', compact('simpanan'));
-    }
+   public function index()
+{
+    // Gunakan 'with' agar relasi anggotanya terbawa
+    $simpanan = Simpanan::with('anggota')->latest()->get(); 
+    return view('admin.simpanan.index', compact('simpanan'));
+}
 
-    public function create()
-    {
-        return view('admin.simpanan.create');
-    }
+    public function create() {
+    $anggota = \App\Models\Anggota::all(); // Ambil semua anggota
+    return view('admin.simpanan.create', compact('anggota'));
+}
 
     public function store(Request $request, SimpananService $simpananService)
     {
@@ -34,10 +35,11 @@ class SimpananController extends Controller
         return redirect()->route('admin.simpanan.index')->with('success', 'Simpanan berhasil ditambahkan!');
     } 
 
-    public function edit(Simpanan $simpanan)
-    {
-        return view('admin.simpanan.edit', compact('simpanan'));
-    }
+    public function edit($id) {
+    $simpanan = \App\Models\Simpanan::findOrFail($id);
+    $anggota = \App\Models\Anggota::all(); // Tambahkan baris ini
+    return view('admin.simpanan.edit', compact('simpanan', 'anggota'));
+}
 
     public function update(Request $request, Simpanan $simpanan)
     {
